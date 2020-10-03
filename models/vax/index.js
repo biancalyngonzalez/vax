@@ -1,0 +1,25 @@
+///////////////////////////////////
+// IMPORT SCHEMA AND MODEL
+///////////////////////////////////
+const { Schema, model } = require("mongoose");
+
+////////////////////////////////////
+// CREATE SCHEMA
+////////////////////////////////////
+
+const vaxSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  vaccine: { type: String, required: true },
+  date: { type: Date, required: true },
+  location: { type: String, required: true }, 
+});
+
+////////////////////////////////////
+// CREATE MODEL
+////////////////////////////////////
+const Vax = model("vax", vaxSchema);
+
+////////////////////////////////////
+// EXPORT MODEL
+////////////////////////////////////
+module.exports = Vax;
