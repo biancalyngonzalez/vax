@@ -1,7 +1,7 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
 
-class New extends React.Component {
+class Index extends React.Component {
   render() {
     const { vax } = this.props;
     return (

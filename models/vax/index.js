@@ -8,7 +8,7 @@ const { Schema, model } = require("mongoose");
 ////////////////////////////////////
 
 const vaxSchema = new Schema({
-  username: { type: String, required: false},
+  username: { type: String, required: false, unique:false},
   vaccine: { type: String, required: false},
   date: { type: Date, required: false },
   location: { type: String, required: false }, 

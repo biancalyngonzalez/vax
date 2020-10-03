@@ -19,8 +19,8 @@ const router = Router();
    try {
     const vax = await Vax.find({ username: req.session.username });
     res.render("vax/index.jsx", { vax });
-   } catch (err) {
-     console.log(err);
+   } catch (error) {
+     console.log(error);
    }
  }) 
 
@@ -28,8 +28,7 @@ const router = Router();
  router.get('/new', auth, async (req, res) => {
   try{
     res.render('vax/new.jsx')
-  }
-  catch(error){
+  } catch(error){
     console.log(error)
   }
  })
@@ -37,22 +36,20 @@ const router = Router();
  //Create Route - Submit Vaccine
  router.post('/', auth, async (req, res) => {
    try{
-    req.body.username = req.session.username
-    const newVax = await Vax.create(req.body)
-    res.redirect('/vax/')
+    req.body.username = req.session.username;
+    const newVax = await Vax.create(req.body);
+    res.redirect('/vax/');
+   } catch (error) {
+    console.log(error);
    }
-   catch(error){
-    console.log(error)
-   }
- })
+ });
 
  //Delete Route - Delete Vaccine
- router.delete("/", auth, async (req,res) => {
-   try{
-    await Vax.findByIdAndDelete(req,params.id)
-    res.redirect('/vax')
-   }
-   catch(error){
+ router.delete("/:id", auth, async (req,res) => {
+   try {
+    await Vax.findByIdAndDelete(req,params.id);
+    res.redirect('/vax/');
+   } catch(error){
      console.log(error)
    }
   
@@ -60,23 +57,21 @@ const router = Router();
 
  //Edit Route
  router.get('/edit/:id', auth, async (req, res) => {
-   try{
-   const vax = await Vax.findById(req.params.id)
-   res.render('vax/edit.jsx', {vax})
+   try {
+   const vax = await Vax.findById(req.params.id);
+   res.render('vax/edit.jsx', { vax });
+   } catch (error) {
+     console.log(error);
    }
-   catch(error){
-     console.log(error)
-   }
- })
+ });
 
  //Update Route - Edit Vaccine
- router.get('/edit/:id', auth, async (req, res) => {
-   try{
-    req.body.username = req.session.username
-    await Vax.findByIDAndUpdate(req.params.id, req.body)
-    res.redirect('/notes/')
-   }
-   catch(error){
+ router.put('/edit/:id', auth, async (req, res) => {
+   try {
+    req.body.username = req.session.username;
+    await Vax.findByIDAndUpdate(req.params.id, req.body);
+    res.redirect('/notes/');
+   } catch (error) {
      console.log(error)
    }
  })

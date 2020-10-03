@@ -16,8 +16,8 @@ class Index extends React.Component {
         <form action={`/vax/${vax._id}?_method=DELETE`} method="POST">
           <input type="submit" value="delete" />
         </form>
-        <form action={`/vax/edit/${vax._id}?_method=DELETE`} method="GET">
-          <input type="submit" value="edit" />
+        <form action={`/vax/edit/${vax._id}`} method="GET">
+          <input type="submit" value="Edit" />
         </form>
         </div>
         ))}
