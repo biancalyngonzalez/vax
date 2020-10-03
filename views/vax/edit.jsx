@@ -1,7 +1,7 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
 
-class Index extends React.Component {
+class Edit extends React.Component {
   render() {
     const { vax } = this.props;
     return (
@@ -17,4 +17,4 @@ class Index extends React.Component {
   }
 }
 
-module.exports = Index;
+module.exports = Edit;

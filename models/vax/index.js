@@ -8,10 +8,10 @@ const { Schema, model } = require("mongoose");
 ////////////////////////////////////
 
 const vaxSchema = new Schema({
-  username: { type: String, required: true, unique: true },
-  vaccine: { type: String, required: true },
-  date: { type: Date, required: true },
-  location: { type: String, required: true }, 
+  username: { type: String, required: false},
+  vaccine: { type: String, required: false},
+  date: { type: Date, required: false },
+  location: { type: String, required: false }, 
 });
 
 ////////////////////////////////////
